@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.main')
 
-@section('title', 'Books')
+@section('title', 'Users')
 
 @section('container')
-    <h1>hamalaman books</h1>
+    <h1>halaman users</h1>
 @endsection

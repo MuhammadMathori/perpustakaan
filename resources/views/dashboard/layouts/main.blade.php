@@ -4,11 +4,25 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Perpustakaan | Dashboard</title>
+    <title>Perpustakaan | @yield('title')</title>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="/bootstrap-5.3.3/css/bootstrap.css">
     <!-- Custom styles for this template -->
-    <link href="/css/dashboard.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
+    {{-- Bootstrap icon --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    {{-- <style>
+        .card-data {
+            border: solid 1px;
+            padding: 20px;
+        }
+
+        .card-data i {
+            font-size: 80px;
+        }
+    </style> --}}
 </head>
 
 <body>
@@ -33,7 +47,7 @@
         integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous">
     </script>
 
-    <script src="/js/dashboard.js"></script>
+    <script src="js/dashboard.js"></script>
 </body>
 
 </html>
