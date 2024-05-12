@@ -28,5 +28,13 @@ Route::middleware('auth')->group(function () {
     Route::get('users', [UserController::class, 'users'])->middleware('only_admin');
     Route::get('books', [BookController::class, 'index']);
     Route::get('categories', [CategoryController::class, 'index']);
+    Route::get('create-category', [CategoryController::class, 'create']);
+    Route::post('create-category', [CategoryController::class, 'store']);
+    Route::get('edit-category/{slug}', [CategoryController::class, 'edit']);
+    Route::put('edit-category/{slug}', [CategoryController::class, 'update']);
+    Route::get('delete-category/{slug}', [CategoryController::class, 'delete']);
+    Route::get('destroy-category/{slug}', [CategoryController::class, 'destroy']);
+    Route::get('deleted-category', [CategoryController::class, 'deleted']);
+    Route::get('restore-category/{slug}', [CategoryController::class, 'restore']);
     Route::get('rentlogs', [RentLogController::class, 'index']);
 });

@@ -16,8 +16,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('categories') ? 'active' : '' }}" href="/categories">
-                        <span data-feather="grid"></span>
+                    <a class="nav-link {{ Request::is('categories', 'create-category', 'edit-category/{slug}', 'delete-category/{slug}', 'deleted-category') ? 'active' : '' }}"
+                        href="/categories"<span data-feather="grid"></span>
                         Categories
                     </a>
                 </li>

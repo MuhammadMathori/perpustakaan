@@ -1,14 +1,11 @@
 @extends('dashboard.layouts.main')
 
-@section('title', 'Categories')
+@section('title', 'List Deleted Category')
 
 @section('container')
     <div class="mt-4">
-        <h2>Categories List</h2>
-        <div class="mt-4 d-flex justify-content-end">
-            <a href="create-category" class="btn btn-primary me-3">Create New Category</a>
-            <a href="deleted-category" class="btn btn-info">View Category Delete</a>
-        </div>
+        <h2>List Deleted Categories</h2>
+
         <div class="mt-5">
             @if (session('status'))
                 <div class="alert alert-success">
@@ -26,18 +23,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($categories as $category)
+                    @foreach ($deletedCategories as $category)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $category->name }}</td>
                             <td>
-                                <a href="/edit-category/{{ $category->slug }}" class="btn btn-warning">Edit</a>
-                                <a href="/delete-category/{{ $category->slug }}" class="btn btn-danger">Delete</a>
+                                <a href="/restore-category/{{ $category->slug }}" class="btn btn-secondary">Restore</a>
+                                {{-- <a href="/delete-category/{{ $category->slug }}" class="btn btn-danger">Delete</a> --}}
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+            {{-- <div class="container justify-content-center text-center">
+                data is emty
+            </div> --}}
+            <div class="mt-4 d-flex justify-content-end">
+                <a href="categories" class="btn btn-primary me-3">Back</a>
+            </div>
         </div>
     </div>
 @endsection
