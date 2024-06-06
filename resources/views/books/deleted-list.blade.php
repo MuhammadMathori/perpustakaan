@@ -1,14 +1,11 @@
 @extends('dashboard.layouts.main')
 
-@section('title', 'Books')
+@section('title', 'List Deleted Book')
 
 @section('container')
     <div class="mt-4">
-        <h2>Books List</h2>
-        <div class="mt-4 d-flex justify-content-end">
-            <a href="create-book" class="btn btn-primary me-3">Create New Book</a>
-            <a href="deleted-book" class="btn btn-info">View Book Delete</a>
-        </div>
+        <h2>List Deleted Books</h2>
+
         <div class="mt-5">
             @if (session('status'))
                 <div class="alert alert-success">
@@ -24,12 +21,11 @@
                         <th>Code</th>
                         <th>Title</th>
                         <th>Category</th>
-                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($books as $book)
+                    @foreach ($deletedBooks as $book)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $book->book_code }}</td>
@@ -39,15 +35,20 @@
                                     {{ $category->name }} <br>
                                 @endforeach
                             </td>
-                            <td>{{ $book->status }}</td>
                             <td>
-                                <a href="/edit-book/{{ $book->slug }}" class="btn btn-warning">Edit</a>
-                                <a href="/delete-book/{{ $book->slug }}" class="btn btn-danger">Delete</a>
+                                <a href="/restore-book/{{ $book->slug }}" class="btn btn-secondary">Restore</a>
+                                {{-- <a href="/delete-category/{{ $category->slug }}" class="btn btn-danger">Delete</a> --}}
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+            {{-- <div class="container justify-content-center text-center">
+                data is emty
+            </div> --}}
+            <div class="mt-4 d-flex justify-content-end">
+                <a href="books" class="btn btn-primary me-3">Back</a>
+            </div>
         </div>
     </div>
 @endsection

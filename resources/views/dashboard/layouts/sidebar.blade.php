@@ -10,7 +10,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('books') ? 'active' : '' }}" href="/books">
+                    <a class="nav-link {{ Request::is('books', 'create-book', 'edit-book/{slug}', 'deleted-book', 'delete-book/{slug}') ? 'active' : '' }}"
+                        href="/books">
                         <span data-feather="book"></span>
                         Books
                     </a>

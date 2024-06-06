@@ -27,6 +27,15 @@ Route::middleware('auth')->group(function () {
     Route::get('profile', [UserController::class, 'profile'])->middleware('only_client');
     Route::get('users', [UserController::class, 'users'])->middleware('only_admin');
     Route::get('books', [BookController::class, 'index']);
+    Route::get('create-book', [BookController::class, 'create']);
+    Route::post('create-book', [BookController::class, 'store']);
+    Route::get('edit-book/{slug}', [BookController::class, 'edit']);
+    Route::post('edit-book/{slug}', [BookController::class, 'update']);
+    Route::get('delete-book/{slug}', [BookController::class, 'delete']);
+    Route::get('destroy-book/{slug}', [BookController::class, 'destroy']);
+    Route::get('deleted-book', [BookController::class, 'deleted']);
+    Route::get('restore-book/{slug}', [BookController::class, 'restore']);
+
     Route::get('categories', [CategoryController::class, 'index']);
     Route::get('create-category', [CategoryController::class, 'create']);
     Route::post('create-category', [CategoryController::class, 'store']);
@@ -36,5 +45,6 @@ Route::middleware('auth')->group(function () {
     Route::get('destroy-category/{slug}', [CategoryController::class, 'destroy']);
     Route::get('deleted-category', [CategoryController::class, 'deleted']);
     Route::get('restore-category/{slug}', [CategoryController::class, 'restore']);
+
     Route::get('rentlogs', [RentLogController::class, 'index']);
 });
