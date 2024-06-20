@@ -1,14 +1,11 @@
 @extends('dashboard.layouts.main')
 
-@section('title', 'Users')
+@section('title', 'List Banned User')
 
 @section('container')
     <div class="mt-4">
-        <h2>User List</h2>
-        <div class="mt-4 d-flex justify-content-end">
-            <a href="user-registered" class="btn btn-info me-3">New Register User</a>
-            <a href="destroy-user" class="btn btn-secondary">View User Banned</a>
-        </div>
+        <h2>List Banned User</h2>
+
         <div class="mt-5">
             @if (session('status'))
                 <div class="alert alert-success">
@@ -27,7 +24,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($users as $user)
+                    @foreach ($bannedUser as $user)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $user->username }}</td>
@@ -39,13 +36,19 @@
                                 @endif
                             </td>
                             <td>
-                                <a href="detail-user/{{ $user->slug }}" class="btn btn-primary">Detail</a>
-                                <a href="ban-user/{{ $user->slug }}" class="btn btn-danger">Banned</a>
+                                <a href="/unban-user/{{ $user->slug }}" class="btn btn-secondary">Unbenned</a>
+                                {{-- <a href="/delete-category/{{ $category->slug }}" class="btn btn-danger">Delete</a> --}}
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+            {{-- <div class="container justify-content-center text-center">
+                data is emty
+            </div> --}}
+            <div class="mt-4 d-flex justify-content-end">
+                <a href="users" class="btn btn-primary me-3">Back</a>
+            </div>
         </div>
     </div>
 @endsection

@@ -1,13 +1,12 @@
 @extends('dashboard.layouts.main')
 
-@section('title', 'Books')
+@section('title', 'Users Registered')
 
 @section('container')
     <div class="mt-4">
-        <h2>Books List</h2>
+        <h2>New Register User</h2>
         <div class="mt-4 d-flex justify-content-end">
-            <a href="create-book" class="btn btn-primary me-3">Create New Book</a>
-            <a href="deleted-book" class="btn btn-info">View Book Delete</a>
+            <a href="users" class="btn btn-info me-3">Acc User</a>
         </div>
         <div class="mt-5">
             @if (session('status'))
@@ -21,28 +20,25 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Code</th>
-                        <th>Title</th>
-                        <th>Category</th>
-                        <th>Status</th>
+                        <th>Username</th>
+                        <th>Phone</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($books as $book)
+                    @foreach ($usersRegistered as $user)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $book->book_code }}</td>
-                            <td>{{ $book->title }}</td>
+                            <td>{{ $user->username }}</td>
                             <td>
-                                @foreach ($book->categories as $category)
-                                    {{ $category->name }} <br>
-                                @endforeach
+                                @if ($user->phone)
+                                    {{ $user->phone }}
+                                @else
+                                    -
+                                @endif
                             </td>
-                            <td>{{ $book->status }}</td>
                             <td>
-                                <a href="edit-book/{{ $book->slug }}" class="btn btn-warning">Edit</a>
-                                <a href="delete-book/{{ $book->slug }}" class="btn btn-danger">Delete</a>
+                                <a href="detail-user/{{ $user->slug }}" class="btn btn-primary">Detail</a>
                             </td>
                         </tr>
                     @endforeach

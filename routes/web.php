@@ -24,8 +24,17 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::post('logout', [LoginController::class, 'logout']);
     Route::get('dashboard', [DashboardController::class, 'index'])->middleware('only_admin');
+
     Route::get('profile', [UserController::class, 'profile'])->middleware('only_client');
     Route::get('users', [UserController::class, 'users'])->middleware('only_admin');
+    Route::get('user-registered', [UserController::class, 'userRegistered']);
+    Route::get('detail-user/{slug}', [UserController::class, 'detailUser']);
+    Route::get('acc-user/{slug}', [UserController::class, 'acc']);
+    Route::get('ban-user/{slug}', [UserController::class, 'ban']);
+    Route::get('banned-user/{slug}', [UserController::class, 'banned']);
+    Route::get('destroy-user', [UserController::class, 'destroy']);
+    Route::get('unban-user/{slug}', [UserController::class, 'unban']);
+
     Route::get('books', [BookController::class, 'index']);
     Route::get('create-book', [BookController::class, 'create']);
     Route::post('create-book', [BookController::class, 'store']);

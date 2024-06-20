@@ -10,20 +10,21 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('books', 'create-book', 'edit-book/{slug}', 'deleted-book', 'delete-book/{slug}') ? 'active' : '' }}"
+                    <a class="nav-link {{ Request::is('books', 'create-book', 'deleted-book', 'edit-book*', 'delete-book*') ? 'active' : '' }}"
                         href="/books">
                         <span data-feather="book"></span>
                         Books
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('categories', 'create-category', 'edit-category/{slug}', 'delete-category/{slug}', 'deleted-category') ? 'active' : '' }}"
+                    <a class="nav-link {{ Request::is('categories', 'create-category', 'edit-category*', 'delete-category*', 'deleted-category') ? 'active' : '' }}"
                         href="/categories"<span data-feather="grid"></span>
                         Categories
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('users') ? 'active' : '' }}" href="/users">
+                    <a class="nav-link {{ Request::is('users', 'user-registered', 'detail-user*', 'acc-user', 'ban-user*', 'destroy-user') ? 'active' : '' }}"
+                        href="/users">
                         <span data-feather="users"></span>
                         Users
                     </a>
