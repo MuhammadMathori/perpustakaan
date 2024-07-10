@@ -17,7 +17,7 @@ class OnlyAdmin
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::user()->role_id != 1) {
-            return redirect('books');
+            return redirect('/book-list');
         }
         return $next($request);
     }
