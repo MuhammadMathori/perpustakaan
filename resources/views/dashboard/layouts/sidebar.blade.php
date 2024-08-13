@@ -31,9 +31,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ Request::is('rentlogs') ? 'active' : '' }}" href="/rentlogs">
+                        <a class="nav-link {{ Request::is('rentLogs') ? 'active' : '' }}" href="/rentLogs">
                             <span data-feather="file-text"></span>
                             Rent Log
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('bookRent') ? 'active' : '' }}" href="/bookRent">
+                            <span data-feather="file-text"></span>
+                            Book Rent
                         </a>
                     </li>
                 @else
