@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\RentLogs;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -10,7 +11,10 @@ class UserController extends Controller
     public function profile(Request $request)
     {
         // $request->session()->flush();
-        return view('profile.index');
+        $rentLogs = RentLogs::with(['user', 'book'])->where('user_id', auth()->user()->id)->get();
+        return view('profile.index', [
+            'rentLogs' => $rentLogs
+        ]);
     }
 
     public function users()
@@ -32,8 +36,10 @@ class UserController extends Controller
     public function detailUser($slug)
     {
         $user = User::where('slug', $slug)->first();
+        $rentLogs = RentLogs::with(['user', 'book'])->where('user_id', $user->id)->get();
         return view('dashboard.admin.detail-user', [
-            'user' => $user
+            'user' => $user,
+            'rentLogs' => $rentLogs
         ]);
     }
 

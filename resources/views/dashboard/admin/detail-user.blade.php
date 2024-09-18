@@ -36,5 +36,9 @@
 
         </form>
     </div>
+
+    <div class="mt-5">
+        <h2>List User Rentlog</h2>
+        <x-rent-log-table :rentLog="$rentLogs"></x-rent-log-table>
     </div>
 @endsection

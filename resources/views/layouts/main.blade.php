@@ -12,7 +12,7 @@
 
 </head>
 
-<body>
+<body class="bg-secondary">
 
     <div class="container mt-4">
         @yield('container')
