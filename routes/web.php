@@ -61,5 +61,8 @@ Route::middleware('auth')->group(function () {
         Route::post('bookRent', [BookRentController::class, 'store']);
 
         Route::get('rentLogs', [RentLogController::class, 'index']);
+
+        Route::get('bookReturn', [BookRentController::class, 'bookReturn']);
+        Route::post('bookReturn', [BookRentController::class, 'bookReturnProcess']);
     });
 });

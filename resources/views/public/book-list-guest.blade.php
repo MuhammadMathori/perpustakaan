@@ -30,7 +30,7 @@
             <div class="col-12 col-sm-6">
                 <div class="input-group mb-3">
                     <input type="text" name="title" class="form-control" placeholder="Search Book Title">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <button class="btn btn-success" type="submit">Search</button>
                 </div>
             </div>
         </div>

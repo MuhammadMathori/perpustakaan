@@ -42,6 +42,12 @@
                             Book Rent
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('bookReturn') ? 'active' : '' }}" href="/bookReturn">
+                            <span data-feather="file-text"></span>
+                            Book Return
+                        </a>
+                    </li>
                 @else
                     <li class="nav-item">
                         <a class="nav-link {{ Request::is('profile') ? 'active' : '' }}" href="/profile">
