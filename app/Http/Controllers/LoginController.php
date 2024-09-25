@@ -52,7 +52,7 @@ class LoginController extends Controller
         }
 
         Session::flash('status', 'failed');
-        Session::flash('message', 'login Invalid');
+        Session::flash('message', 'Your username or password is incorrect');
 
         return redirect('/login');
     }

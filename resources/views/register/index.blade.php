@@ -1,67 +1,51 @@
 @extends('layouts.main')
 
 @section('container')
-    <div class="row justify-content-center">
-        <div class="col-lg-5">
-            {{-- @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+    <div class="warapper">
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        @endif
+        <form action="/register" method="POST">
+            @csrf
+            <h1>Register</h1>
+            <div class="input-box">
+                <input type="text" name="username" id="username" placeholder="Your Username"
+                    @error('username') is-invalid @enderror required>
+                <label for="username"></label>
+                <i class="bi bi-person-circle"></i>
+                @error('username')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+            <div class="input-box">
+                <input type="password" name="password" id="password" placeholder="Your  Password" required>
+                <label for="password"></label>
+                <i class="bi bi-shield-lock-fill"></i>
+            </div>
+            <div class="input-box">
+                <input type="text" name="phone" id="phone" placeholder="Your phone"
+                    @error('phone') is-invalid @enderror required>
+                <label for="phone"></label>
+                <i class="bi bi-telephone-fill"></i>
+            </div>
+            <div class="input-box">
+                <textarea name="address" id="address" placeholder="Your Address" id="floatingTextarea2" style="height: 70px"
+                    @error('address') is-invalid @enderror required></textarea>
+                <label for="address"></label>
+                <div class="invalid-feedback">
+                    @error('address')
+                        {{ $message }}
+                    @enderror
                 </div>
-            @endif --}}
-            @if (session('status'))
-                <div class="alert alert-success">
-                    {{ session('message') }}
-                </div>
-            @endif
-            <main class="form-registation">
-                <h1 class="h3 mb-3 fw-normal text-center">Registation</h1>
-                <form action="/register" method="post">
-                    @csrf
-                    <div class="form-floating">
-                        <input type="text" name="username" class="form-control  @error('username') is-invalid @enderror"
-                            id="username" placeholder="Username" value="{{ old('username') }}">
-                        <label for="username">Username</label>
-                        @error('username')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="form-floating">
-                        <input type="password" name="password"
-                            class="form-control rounded-bottom @error('password') is-invalid @enderror" id="password"
-                            placeholder="Password">
-                        <label for="password">Password</label>
-                        @error('password')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="form-floating">
-                        <input type="phone" name="phone" class="form-control rounded-top" id="phone"
-                            placeholder="phone">
-                        <label for="phone">Phone</label>
-                    </div>
-                    <div class="form-floating">
-                        <textarea class="form-control @error('address') is-invalid @enderror " name="address" id="address"
-                            placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                        <label for="address">Address</label>
-                        <div class="invalid-feedback">
-                            @error('address')
-                                {{ $message }}
-                            @enderror
-                        </div>
-                    </div>
-
-                    <button class="btn btn-primary w-100 py-2 mt-2" type="submit">Register</button>
-                </form>
-                <small class="d-block text-center mt-2">Alredy register <a href="/login ">Login</a></small>
-            </main>
-        </div>
+            </div>
+            <button type="submit" class="btn">Register</button>
+            <div class="register-link">
+                <p>Already created an account. <a href="/login">Login</a></p>
+            </div>
+        </form>
     </div>
 @endsection

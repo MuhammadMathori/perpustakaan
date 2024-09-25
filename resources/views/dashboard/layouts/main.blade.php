@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Perpustakaan | @yield('title')</title>
+    <title>SIREBU | @yield('title')</title>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="/bootstrap-5.3.3/css/bootstrap.css">
     <!-- Custom styles for this template -->
